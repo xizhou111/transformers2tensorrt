@@ -1,3 +1,4 @@
+# Description: This file contains common functions used in the sample scripts.
 import argparse
 import os
 import numpy as np
