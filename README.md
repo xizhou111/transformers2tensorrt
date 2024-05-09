@@ -1,2 +1,4 @@
 # transformers2tensorrt
 transformers-bert模型转换tensorrt模型推理加速
+
+roberta转换tensorrt整体流程跑通，推理速度快4倍左右
