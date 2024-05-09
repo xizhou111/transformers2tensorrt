@@ -82,7 +82,7 @@ def get_engine(engine_file_path):
         engine = runtime.deserialize_cuda_engine(f.read())
         return engine
 
-engine_model_path = "/mnt/cfs/NLP/zcl/transformers2TensorRT/results/roberta_engine_pytorch.trt"
+engine_model_path = "./results/roberta_engine_pytorch.trt"
 # Build a TensorRT engine.
 engine = get_engine(engine_model_path)
 # Contexts are used to perform inference.
