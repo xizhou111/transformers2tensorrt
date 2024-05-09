@@ -1,7 +1,6 @@
 from transformers import pipeline
 import time
 
-
 checkpoint = "/mnt/cfs/NLP/zcl/interface/http_demo/src/model/chinese-roberta-wwm-ext"
 
 classifier = pipeline('text-classification', model=checkpoint, tokenizer=checkpoint)
