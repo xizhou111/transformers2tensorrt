@@ -1,3 +1,4 @@
+# transformer模型保存为pth文件
 import torch
 from transformers import  AutoTokenizer
 from transformers import AutoModelForSequenceClassification
