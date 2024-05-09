@@ -10,7 +10,6 @@
 # context = engine.create_execution_context()
 
 # import numpy as np
-
 # # need to set input and output precisions to FP16 to fully enable it
 # output = np.empty([1, 10], dtype = np.float32) 
 
