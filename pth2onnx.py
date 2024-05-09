@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+# pth2onnx.py
 import torch
 from transformers import  AutoTokenizer
 from transformers import AutoModelForSequenceClassification
