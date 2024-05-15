@@ -28,7 +28,7 @@ if __name__ == '__main__':
     # 模型多次调用了tokenizer和model，待优化
     checkpoint = "/mnt/cfs/NLP/zcl/interface/http_demo/src/model/chinese-roberta-wwm-ext"
     tokenizer = AutoTokenizer.from_pretrained(checkpoint)
-    model = AutoModelForSequenceClassification.from_pretrained(checkpoint)  # 三分类
+    model = AutoModelForSequenceClassification.from_pretrained(checkpoint) # transformers模型加载
     model.load_state_dict(torch_model)
 
     text = "如图,姐弟两人吃一个蛋糕。比较发现,(     )。\n姐姐：“我先吃这个蛋糕的 $$ \\frac{1}{3} $$。”\n弟弟：“我吃剩下的一半。”\nA. 姐姐吃得多  \nB. 弟弟吃得多  \nC. 两人吃得一样多\nD. 无法比较\n"
