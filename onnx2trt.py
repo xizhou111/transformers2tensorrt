@@ -1,4 +1,5 @@
 import tensorrt as trt
+from argparse import ArgumentParser
 
 def convert_onnx_to_engine(onnx_filename,
                            engine_filename = None,
@@ -29,16 +30,22 @@ def convert_onnx_to_engine(onnx_filename,
         if engine is None:
             print("Failed to create engine.")
             return None, logger
-        print("Created engine success! ")
 
         if engine_filename:
             with open(engine_filename, 'wb') as f:
                 f.write(engine.serialize())
+        print("Created engine success! ")
 
         return engine, logger
     
 
 if __name__ == '__main__':
-    onnx_filename = './results/roberta_static.onnx'
-    engine_filename = './results/roberta_test.trt'
+    parser = ArgumentParser()
+    parser.add_argument('--onnx_path', type=str, required=True, help='Path to the ONNX file')
+    parser.add_argument('--output_engine', type=str, required=True, help='Path to save the TensorRT engine')
+
+    args = parser.parse_args()
+    onnx_filename = args.onnx_path
+    engine_filename = args.output_engine
+
     convert_onnx_to_engine(onnx_filename, engine_filename, max_batch_size=8, max_workspace_size=1 << 30, fp16_mode=False)
