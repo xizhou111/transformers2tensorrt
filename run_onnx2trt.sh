@@ -1,5 +1,5 @@
-onnx_path=./results/roberta_static.onnx
-output_engine=./results/roberta_py2trt_test.trt
+onnx_path=./results/roberta_pretrain_512_static.onnx
+output_engine=./results/roberta_pretrain_512.trt
 
 
 python onnx2trt.py \

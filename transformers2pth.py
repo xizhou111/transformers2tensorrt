@@ -5,9 +5,9 @@ from transformers import AutoModelForSequenceClassification
 
 if __name__ == '__main__':
 
-    checkpoint = "/mnt/cfs/NLP/zcl/interface/http_demo/src/model/chinese-roberta-wwm-ext"
+    checkpoint = "/mnt/cfs/NLP/zcl/subjects_classification/roberta/output_pretrain_512/checkpoint-30000"
     tokenizer = AutoTokenizer.from_pretrained(checkpoint)
     model = AutoModelForSequenceClassification.from_pretrained(checkpoint)
 
-    torch.save(model.state_dict(), "./results/roberta_params.pth")
+    torch.save(model.state_dict(), "./results/roberta_pretrain_512.pth")
     print("transformers模型保存pth模型成功！")

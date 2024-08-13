@@ -24,15 +24,15 @@ def export_static_onnx_model(text, model, tokenizer, static_onnx_model_path):
         print("ONNX Model exported to {0}".format(static_onnx_model_path))
 
 if __name__ == '__main__':
-    torch_model = torch.load("./results/roberta_params.pth")  # pytorch模型加载
+    torch_model = torch.load("./results/roberta_pretrain_512.pth")  # pytorch模型加载
     # 模型多次调用了tokenizer和model，待优化
-    checkpoint = "/mnt/cfs/NLP/zcl/interface/http_demo/src/model/chinese-roberta-wwm-ext"
+    checkpoint = "/mnt/cfs/NLP/zcl/subjects_classification/roberta/output_pretrain_512/checkpoint-30000"
     tokenizer = AutoTokenizer.from_pretrained(checkpoint)
     model = AutoModelForSequenceClassification.from_pretrained(checkpoint) # transformers模型加载
     model.load_state_dict(torch_model)
 
     text = "如图,姐弟两人吃一个蛋糕。比较发现,(     )。\n姐姐：“我先吃这个蛋糕的 $$ \\frac{1}{3} $$。”\n弟弟：“我吃剩下的一半。”\nA. 姐姐吃得多  \nB. 弟弟吃得多  \nC. 两人吃得一样多\nD. 无法比较\n"
-    static_onnx_model_path = "./results/roberta_static.onnx"
+    static_onnx_model_path = "./results/roberta_pretrain_512_static.onnx"
     export_static_onnx_model(text, model, tokenizer, static_onnx_model_path)
 
 
